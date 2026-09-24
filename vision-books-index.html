@@ -1,0 +1,1369 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title>VISION BOOKS — Bibliothèque Numérique Business & Mindset</title>
+<meta name="description" content="Ebooks et livres audios pour booster votre mindset et vos revenus. Accès instantané via WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ============ DESIGN TOKENS ============ */
+:root{
+  --bg:#0F172A;
+  --bg-alt:#0B1220;
+  --card:#1E293B;
+  --card-2:#25324A;
+  --line:rgba(148,163,184,.14);
+  --text:#FFFFFF;
+  --muted:#94A3B8;
+  --green:#25D366;
+  --green-2:#10B981;
+  --blue:#3B82F6;
+  --gold:#F59E0B;
+  --radius:18px;
+  --radius-sm:12px;
+  --shadow:0 10px 30px -12px rgba(0,0,0,.55);
+  --font-display:'Plus Jakarta Sans',sans-serif;
+  --font-body:'Inter',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:radial-gradient(1200px 600px at 50% -10%, #16223d 0%, var(--bg) 55%) fixed;
+  color:var(--text);
+  font-family:var(--font-body);
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+  padding-bottom:40px;
+}
+img{max-width:100%;display:block}
+button{font-family:inherit;cursor:pointer;border:none}
+a{color:inherit;text-decoration:none}
+.container{max-width:1180px;margin:0 auto;padding:0 16px}
+h1,h2,h3{font-family:var(--font-display);letter-spacing:-.01em}
+:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+/* ============ TOP URGENCY BAR ============ */
+.topbar{
+  position:sticky;top:0;z-index:60;
+  background:linear-gradient(90deg,var(--green-2),var(--green));
+  color:#052e1a;font-weight:600;font-size:13px;
+  padding:9px 14px;text-align:center;
+}
+.topbar .wrap{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap}
+.topbar .timer{font-family:var(--font-display);font-weight:800;background:rgba(5,46,26,.15);padding:2px 9px;border-radius:8px;letter-spacing:.03em}
+
+/* ============ HEADER ============ */
+header.site{padding:18px 0 6px;position:sticky;top:37px;z-index:50;background:rgba(15,23,42,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.logo{font-family:var(--font-display);font-weight:800;font-size:20px;display:flex;align-items:center;gap:8px}
+.logo span{color:var(--green)}
+.logo .dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 12px var(--green)}
+.nav-actions{display:flex;gap:8px}
+.icon-btn{width:40px;height:40px;border-radius:12px;background:var(--card);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--text)}
+
+/* ============ HERO ============ */
+.hero{padding:34px 0 22px;text-align:center}
+.social-proof{display:flex;justify-content:center;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap}
+.avatars{display:flex}
+.avatars .av{width:30px;height:30px;border-radius:50%;border:2px solid var(--bg);margin-left:-10px;background:linear-gradient(135deg,var(--blue),var(--green));font-size:11px;display:flex;align-items:center;justify-content:center;font-weight:700}
+.avatars .av:first-child{margin-left:0}
+.proof-text{font-size:12.5px;color:var(--muted)}
+.proof-text strong{color:var(--text)}
+.stars{color:var(--gold);font-size:13px}
+h1.hero-title{font-size:clamp(26px,6vw,42px);font-weight:800;line-height:1.15;max-width:760px;margin:0 auto 14px}
+h1.hero-title em{font-style:normal;background:linear-gradient(90deg,var(--green),var(--blue));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero-sub{color:var(--muted);max-width:560px;margin:0 auto 24px;font-size:15.5px}
+.search-wrap{max-width:480px;margin:0 auto;position:relative}
+.search-wrap input{
+  width:100%;padding:15px 18px 15px 46px;border-radius:16px;
+  background:var(--card);border:1px solid var(--line);color:var(--text);font-size:15px;
+}
+.search-wrap input::placeholder{color:var(--muted)}
+.search-wrap svg{position:absolute;left:16px;top:50%;transform:translateY(-50%);color:var(--muted)}
+
+/* ============ LEAD MAGNET BANNER ============ */
+.magnet-banner{
+  margin:26px 0;padding:20px;border-radius:var(--radius);
+  background:linear-gradient(135deg,rgba(245,158,11,.14),rgba(59,130,246,.10));
+  border:1px solid rgba(245,158,11,.3);
+  display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;
+}
+.magnet-banner .txt h3{font-size:17px;margin-bottom:3px}
+.magnet-banner .txt p{color:var(--muted);font-size:13.5px}
+.btn-gold{
+  background:linear-gradient(90deg,var(--gold),#fbbf24);color:#3a2405;font-weight:700;
+  padding:12px 20px;border-radius:12px;font-size:14px;white-space:nowrap;
+}
+
+/* ============ SOUS-FILTRES (Audio / Ebook, dans chaque vue catégorie) ============ */
+.filters{display:flex;gap:9px;overflow-x:auto;padding:4px 2px 18px;scrollbar-width:none}
+.filters::-webkit-scrollbar{display:none}
+.chip{
+  flex-shrink:0;padding:10px 16px;border-radius:999px;background:var(--card);
+  border:1px solid var(--line);color:var(--muted);font-size:13.5px;font-weight:600;
+  transition:background .15s,color .15s,border-color .15s;
+}
+.chip.active{background:var(--green);border-color:var(--green);color:#052e1a}
+
+/* ============ SECTION TITLES ============ */
+.section-title{font-size:21px;margin:36px 0 16px;text-align:center}
+#homeBestsellers .section-title{margin-top:30px}
+
+/* ============ BIG CATEGORY CARDS ============ */
+.cat-cards{display:flex;flex-direction:column;gap:12px}
+.cat-card{
+  --cat-color:var(--green);
+  display:flex;align-items:center;gap:16px;padding:20px;border-radius:var(--radius);
+  background:linear-gradient(135deg, color-mix(in srgb, var(--cat-color) 20%, var(--card)), var(--card-2));
+  border:1px solid color-mix(in srgb, var(--cat-color) 45%, var(--line));
+  box-shadow:0 10px 30px -14px color-mix(in srgb, var(--cat-color) 55%, transparent), var(--shadow);
+  transition:transform .15s,border-color .15s;text-align:left;width:100%;
+}
+.cat-card:active{transform:scale(.98)}
+.cat-card .emoji{
+  font-size:30px;flex-shrink:0;width:56px;height:56px;border-radius:16px;
+  background:color-mix(in srgb, var(--cat-color) 35%, transparent);
+  display:flex;align-items:center;justify-content:center;
+}
+.cat-card .txt{flex:1}
+.cat-card .txt h3{font-family:var(--font-display);font-size:17px;margin-bottom:3px}
+.cat-card .txt p{font-size:12.5px;color:var(--muted)}
+.cat-card .arrow{font-size:20px;color:var(--cat-color);flex-shrink:0;font-weight:800}
+
+/* ============ CATEGORY VIEW ============ */
+#categoryView{ --cat-color:var(--green); }
+.category-header{display:flex;align-items:center;gap:14px;margin:36px 0 16px;padding-bottom:14px;border-bottom:3px solid color-mix(in srgb, var(--cat-color) 55%, var(--line))}
+#categoryTitle{color:color-mix(in srgb, var(--cat-color) 70%, white)}
+.back-btn{background:var(--card);border:1px solid var(--line);color:var(--text);font-size:13px;font-weight:600;padding:10px 16px;border-radius:12px;flex-shrink:0}
+
+/* ============ PRODUCT GRID ============ */
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+@media(min-width:720px){.grid{grid-template-columns:repeat(3,1fr);gap:16px}}
+@media(min-width:1000px){.grid{grid-template-columns:repeat(4,1fr)}}
+.card{
+  background:var(--card);border-radius:var(--radius);overflow:hidden;
+  border:1px solid var(--line);display:flex;flex-direction:column;
+  box-shadow:var(--shadow);
+}
+.card .cover{position:relative;aspect-ratio:3/4;background:linear-gradient(160deg,var(--card-2),#0d1526);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.card .cover img{width:100%;height:100%;object-fit:cover}
+.badge{position:absolute;top:9px;left:9px;font-size:10.5px;font-weight:700;padding:4px 9px;border-radius:8px;background:rgba(0,0,0,.55);backdrop-filter:blur(4px)}
+.badge.free{background:var(--green)}
+.badge.mp3{background:var(--blue)}
+.badge.vip{background:var(--gold);color:#3a2405}
+.card .body{padding:12px 12px 14px;display:flex;flex-direction:column;gap:6px;flex:1}
+.card .title{font-size:13.5px;font-weight:700;line-height:1.3;min-height:2.6em}
+.card .author{font-size:11.5px;color:var(--muted)}
+.card .rating{font-size:11px;color:var(--gold)}
+.card .price-row{display:flex;align-items:baseline;gap:7px;margin-top:2px}
+.card .price-old{font-size:11.5px;color:var(--muted);text-decoration:line-through}
+.card .price-new{font-size:16px;font-weight:800;color:var(--green)}
+.card .actions{display:flex;flex-direction:column;gap:6px;margin-top:auto}
+.btn-whatsapp{background:var(--green);color:#052e1a;font-weight:700;font-size:12.5px;padding:10px;border-radius:10px;display:flex;align-items:center;justify-content:center;gap:6px}
+.btn-ghost{background:transparent;border:1px solid var(--line);color:var(--muted);font-size:12px;padding:9px;border-radius:10px}
+
+/* ============ VIP BUNDLE ============ */
+.vip-section{
+  margin:38px 0;padding:26px 20px;border-radius:var(--radius);
+  background:linear-gradient(135deg,#1a1030,#0F172A 60%);
+  border:1px solid rgba(245,158,11,.35);position:relative;overflow:hidden;
+}
+.vip-section::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(400px 200px at 90% 0%,rgba(245,158,11,.18),transparent 70%)}
+.vip-inner{position:relative;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+.vip-inner h3{font-size:20px;margin-bottom:6px}
+.vip-inner p{color:var(--muted);font-size:13.5px;max-width:420px}
+.vip-price{display:flex;align-items:baseline;gap:10px;margin:12px 0}
+.vip-price .old{color:var(--muted);text-decoration:line-through;font-size:15px}
+.vip-price .new{font-size:30px;font-weight:800;color:var(--gold)}
+
+/* ============ HOW IT WORKS ============ */
+.steps{margin:38px 0}
+.steps h2{font-size:22px;margin-bottom:18px;text-align:center}
+.steps-grid{display:grid;grid-template-columns:1fr;gap:12px}
+@media(min-width:720px){.steps-grid{grid-template-columns:repeat(4,1fr)}}
+.step-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius-sm);padding:16px}
+.step-num{width:30px;height:30px;border-radius:9px;background:var(--green-2);color:#052e1a;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:13px;margin-bottom:10px}
+.step-card p{font-size:13px;color:var(--muted)}
+
+/* ============ REVIEWS ============ */
+.reviews{margin:38px 0}
+.reviews h2{font-size:22px;margin-bottom:18px;text-align:center}
+.reviews-row{display:flex;gap:14px;overflow-x:auto;padding-bottom:6px;scrollbar-width:none}
+.reviews-row::-webkit-scrollbar{display:none}
+.review-bubble{flex:0 0 260px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius-sm);padding:14px}
+.review-bubble .who{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.review-bubble .who .initial{width:30px;height:30px;border-radius:50%;background:var(--blue);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px}
+.review-bubble .who .name{font-size:13px;font-weight:600}
+.review-bubble .stars{margin-bottom:6px}
+.review-bubble p{font-size:13px;color:var(--muted)}
+
+/* ============ FAQ ============ */
+.faq{margin:38px 0}
+.faq h2{font-size:22px;margin-bottom:18px;text-align:center}
+.faq-item{background:var(--card);border:1px solid var(--line);border-radius:var(--radius-sm);margin-bottom:9px;overflow:hidden}
+.faq-q{padding:15px 16px;display:flex;justify-content:space-between;align-items:center;font-size:14px;font-weight:600}
+.faq-q .plus{transition:transform .2s;color:var(--muted)}
+.faq-item.open .faq-q .plus{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .25s ease;font-size:13.5px;color:var(--muted)}
+.faq-a div{padding:0 16px 15px}
+
+/* ============ FOOTER ============ */
+footer{margin-top:50px;padding:26px 0;text-align:center;color:var(--muted);font-size:12.5px;border-top:1px solid var(--line)}
+
+/* ============ FLOATING WHATSAPP ============ */
+.float-wa{
+  position:fixed;bottom:18px;right:18px;z-index:70;width:56px;height:56px;border-radius:50%;
+  background:var(--green);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(37,211,102,.5);
+  animation:pulse 2.4s infinite;
+}
+@keyframes pulse{0%,100%{box-shadow:0 8px 24px rgba(37,211,102,.5)}50%{box-shadow:0 8px 24px rgba(37,211,102,.85),0 0 0 8px rgba(37,211,102,.12)}}
+
+/* ============ OVERLAYS ============ */
+.overlay{position:fixed;inset:0;background:rgba(3,7,18,.72);backdrop-filter:blur(3px);z-index:100;display:none;align-items:flex-end;justify-content:center}
+.overlay.show{display:flex}
+@media(min-width:720px){.overlay{align-items:center}}
+.sheet{background:var(--bg-alt);width:100%;max-width:520px;border-radius:20px 20px 0 0;max-height:92vh;overflow-y:auto;border:1px solid var(--line);border-bottom:none;border-top:4px solid var(--cat-color, var(--green));position:relative}
+@media(min-width:720px){.sheet{border-radius:20px;border-bottom:1px solid var(--line)}}
+.sheet-head{position:sticky;top:0;background:var(--bg-alt);padding:16px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);z-index:2}
+.sheet-head h3{font-size:16px}
+.close-btn{width:32px;height:32px;border-radius:9px;background:var(--card);display:flex;align-items:center;justify-content:center}
+.sheet-body{padding:18px}
+
+/* drawer founder */
+.founder-photo{width:88px;height:88px;border-radius:50%;margin:0 auto 14px;background:linear-gradient(135deg,var(--green),var(--blue));display:flex;align-items:center;justify-content:center;font-size:30px;font-weight:800;box-shadow:0 0 0 4px rgba(37,211,102,.25)}
+.founder-story{font-size:14px;color:var(--muted);line-height:1.6;margin-bottom:16px}
+.founder-story strong{color:var(--text)}
+.gift-card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px;display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.gift-card .gift-thumb{width:44px;height:44px;border-radius:9px;object-fit:cover;flex-shrink:0}
+.gift-card .gift-text{flex:1;display:flex;flex-direction:column;gap:2px;min-width:0}
+.gift-card .name{font-size:13px;font-weight:600}
+.gift-card .gift-desc{font-size:11.5px;color:var(--muted)}
+.gift-card .btn-mini{background:var(--green);color:#052e1a;font-size:11.5px;font-weight:700;padding:8px 12px;border-radius:9px;white-space:nowrap;flex-shrink:0}
+.capture-cover{width:100%;aspect-ratio:16/9;border-radius:14px;overflow:hidden;margin-bottom:14px;background:var(--card)}
+.capture-cover img{width:100%;height:100%;object-fit:cover}
+.join-btn{width:100%;background:linear-gradient(90deg,var(--green),var(--green-2));color:#052e1a;font-weight:800;padding:15px;border-radius:14px;font-size:14.5px;margin-top:14px;animation:pulse 2.4s infinite}
+
+/* product modal */
+.modal-cover{aspect-ratio:16/9;border-radius:14px;overflow:hidden;margin-bottom:14px;background:var(--card)}
+.modal-cover img{width:100%;height:100%;object-fit:cover}
+.kp-list{list-style:none;margin:12px 0;display:flex;flex-direction:column;gap:8px}
+.kp-list li{font-size:13.5px;color:var(--muted);display:flex;gap:8px}
+.kp-list li::before{content:"✓";color:var(--green);font-weight:800}
+.guarantee{font-size:12px;color:var(--muted);background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px;margin:12px 0}
+
+/* payment modal */
+.pay-tabs{display:flex;gap:8px;margin-bottom:16px}
+.pay-tab{flex:1;padding:10px 6px;text-align:center;border-radius:10px;background:var(--card);border:1px solid var(--line);font-size:12px;font-weight:600;color:var(--muted)}
+.pay-tab.active{background:var(--blue);color:#fff;border-color:var(--blue)}
+.qr-box{background:#fff;width:150px;height:150px;border-radius:14px;margin:0 auto 14px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.qr-box img{width:100%;height:100%;object-fit:contain}
+.pay-info{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;margin-bottom:14px}
+.pay-info .row{display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid var(--line);font-size:13px}
+.pay-info .row:last-child{border-bottom:none}
+.pay-info .row .val{font-weight:700}
+.copy-btn{background:var(--card-2);border:1px solid var(--line);font-size:12px;padding:6px 10px;border-radius:8px;color:var(--text)}
+.copy-btn.copied{background:var(--green);color:#052e1a;border-color:var(--green)}
+.pay-note{font-size:12.5px;color:var(--muted);margin-bottom:14px}
+.btn-main-cta{width:100%;background:var(--green);color:#052e1a;font-weight:800;padding:15px;border-radius:14px;font-size:14.5px}
+
+/* order overlay (2-choice) */
+.order-desc{font-size:13.5px;color:var(--muted);line-height:1.55;margin:8px 0 16px}
+.order-price-row{display:flex;align-items:baseline;gap:10px;margin-bottom:18px}
+.order-price-row .old{color:var(--muted);text-decoration:line-through;font-size:14px}
+.order-price-row .new{font-size:24px;font-weight:800;color:var(--green)}
+.order-actions{display:flex;flex-direction:column;gap:10px}
+.btn-secondary{width:100%;background:var(--card-2);border:1px solid var(--line);color:var(--text);font-weight:700;padding:15px;border-radius:14px;font-size:13.5px;display:flex;align-items:center;justify-content:center;gap:6px}
+
+/* capture (lead magnet) overlay */
+.capture-hero{font-size:44px;text-align:center;margin-bottom:8px}
+#captureModalBody h3{text-align:center;font-size:18px;margin-bottom:10px}
+.capture-pitch{font-size:13.5px;color:var(--muted);line-height:1.6;text-align:center;margin-bottom:18px}
+.capture-pitch strong{color:var(--text)}
+#captureForm{display:flex;flex-direction:column;gap:10px;margin-bottom:14px}
+#captureForm input{
+  width:100%;padding:14px 16px;border-radius:12px;background:var(--card);
+  border:1px solid var(--line);color:var(--text);font-size:14.5px;
+}
+#captureForm input::placeholder{color:var(--muted)}
+.capture-reassure{font-size:11.5px;color:var(--muted);text-align:center}
+
+/* blog */
+.blog{margin:38px 0}
+.blog h2{font-size:22px;margin-bottom:18px;text-align:center}
+.blog-grid{display:grid;grid-template-columns:1fr;gap:12px}
+@media(min-width:720px){.blog-grid{grid-template-columns:repeat(2,1fr)}}
+.blog-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius-sm);padding:16px;display:flex;flex-direction:column;gap:8px}
+.blog-card .date{font-size:11px;color:var(--gold);font-weight:700}
+.blog-card h3{font-size:15px}
+.blog-card p{font-size:13px;color:var(--muted)}
+.blog-card .read-more{align-self:flex-start;color:var(--blue);font-size:12.5px;font-weight:700;margin-top:2px}
+.blog-article-body{font-size:14px;color:var(--muted);line-height:1.7;white-space:pre-line}
+
+/* admin panel */
+#adminOverlay .sheet{max-width:680px}
+.admin-gate{max-width:280px;margin:20px auto;display:flex;flex-direction:column;gap:10px}
+.admin-gate input{padding:13px 15px;border-radius:11px;background:var(--card);border:1px solid var(--line);color:var(--text);font-size:14px}
+.admin-toolbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;gap:10px;flex-wrap:wrap}
+.admin-toolbar p{font-size:12px;color:var(--muted)}
+.admin-table-wrap{overflow-x:auto}
+table.admin-table{width:100%;border-collapse:collapse;font-size:12.5px}
+table.admin-table th{text-align:left;color:var(--muted);font-weight:600;padding:8px;border-bottom:1px solid var(--line);white-space:nowrap}
+table.admin-table td{padding:8px;border-bottom:1px solid var(--line);white-space:nowrap}
+
+.skeleton{background:linear-gradient(90deg,var(--card) 25%,var(--card-2) 37%,var(--card) 63%);background-size:400% 100%;animation:sk 1.4s ease infinite}
+@keyframes sk{0%{background-position:100% 50%}100%{background-position:0 50%}}
+.skeleton-card{border-radius:var(--radius);aspect-ratio:3/5}
+</style>
+</head>
+<body>
+
+<!-- ============ TOP URGENCY BAR ============ -->
+<div class="topbar">
+  <div class="wrap">
+    <span id="bandeauTexte">📚 ACCÈS ILLIMITÉ : Jusqu'à -70% sur nos Packs Ebooks & Audios MP3</span>
+    <span class="timer" id="countdown">24:00:00</span>
+  </div>
+</div>
+
+<!-- ============ HEADER ============ -->
+<header class="site">
+  <div class="container nav">
+    <div class="logo"><span class="dot"></span>VISION <span>BOOKS</span></div>
+    <div class="nav-actions">
+      <a href="#blogSection" class="icon-btn" aria-label="Blog" style="font-size:15px">📰</a>
+      <button class="icon-btn" id="openFounder" aria-label="Cadeaux et fondateur">🎁</button>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="social-proof">
+      <div class="avatars">
+        <div class="av">M</div><div class="av">S</div><div class="av">A</div><div class="av">K</div>
+      </div>
+      <span class="proof-text"><strong>+1 200</strong> lecteurs & entrepreneurs accompagnés</span>
+      <span class="stars">★★★★★ 4.9/5</span>
+    </div>
+    <h1 class="hero-title" id="heroTitre">Accédez aux meilleurs Ebooks et Livres Audios pour <em>booster votre mindset et vos revenus</em>.</h1>
+    <p class="hero-sub" id="heroSousTitre">Des œuvres choisies par les plus grands noms du développement personnel, de la finance et de l'entrepreneuriat — livrées instantanément sur WhatsApp.</p>
+    <div class="search-wrap">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+      <input type="text" id="searchInput" placeholder="Rechercher un titre ou un auteur...">
+    </div>
+  </section>
+
+  <!-- ============ LEAD MAGNET BANNER ============ -->
+  <div class="magnet-banner">
+    <div class="txt">
+      <h3 id="cadeauxTitre">🎁 Nos cadeaux pour vous (100% gratuit)</h3>
+      <p id="cadeauxSousTitre">Vous méritez de commencer, quel que soit votre point de départ aujourd'hui. Ces livres vous attendent déjà — venez simplement les récupérer.</p>
+    </div>
+    <button class="btn-gold" id="openFounder2">Voir les cadeaux</button>
+  </div>
+
+  <!-- ============ HOME : BEST-SELLERS ============ -->
+  <section id="homeBestsellers">
+    <h2 class="section-title">🔥 Nos Best-Sellers</h2>
+    <div class="grid" id="bestSellersGrid"></div>
+  </section>
+
+  <!-- ============ HOME : GRANDES CARTES CATÉGORIES ============ -->
+  <section id="categoriesSection">
+    <h2 class="section-title">Explorez la bibliothèque par catégorie</h2>
+    <div class="cat-cards" id="categoryCards"></div>
+  </section>
+
+  <!-- ============ VUE CATÉGORIE / RECHERCHE (masquée par défaut) ============ -->
+  <section id="categoryView" style="display:none">
+    <div class="category-header">
+      <button class="back-btn" id="backToHomeBtn">← Retour</button>
+      <h2 class="section-title" id="categoryTitle" style="margin:0"></h2>
+    </div>
+    <div class="filters" id="categorySubfilters"></div>
+    <div class="grid" id="categoryGrid"></div>
+  </section>
+
+  <!-- ============ VIP BUNDLE ============ -->
+  <section class="vip-section">
+    <div class="vip-inner">
+      <div>
+        <h3 id="vipTitre">Pack VIP — La Bibliothèque Complète</h3>
+        <p id="vipSousTitre">+50 Ebooks & Livres Audios réunis en un seul accès. Mindset, finance et business, sans limite.</p>
+        <div class="vip-price"><span class="old" id="vipPrixRegulier">899 MAD</span><span class="new" id="vipPrixPromo">249 MAD</span></div>
+      </div>
+      <button class="btn-whatsapp" style="padding:14px 22px;font-size:13.5px" id="vipBtn">Débloquer l'accès VIP 💬</button>
+    </div>
+  </section>
+
+  <!-- ============ HOW IT WORKS ============ -->
+  <section class="steps">
+    <h2>Comment se déroule la commande ?</h2>
+    <div class="steps-grid">
+      <div class="step-card"><div class="step-num">1</div><p>Vous envoyez le message de commande sur WhatsApp.</p></div>
+      <div class="step-card"><div class="step-num">2</div><p>Vous recevez nos coordonnées de paiement (CIH Bank / Cash Plus / Mobile Money).</p></div>
+      <div class="step-card"><div class="step-num">3</div><p>Vous nous envoyez la capture du reçu.</p></div>
+      <div class="step-card"><div class="step-num">4</div><p>Vous recevez immédiatement votre lien de téléchargement direct Google Drive.</p></div>
+    </div>
+  </section>
+
+  <!-- ============ REVIEWS ============ -->
+  <section class="reviews">
+    <h2>Ce qu'en disent nos lecteurs</h2>
+    <div class="reviews-row" id="reviewsRow"></div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section class="faq">
+    <h2>Questions fréquentes</h2>
+    <div id="faqList"></div>
+  </section>
+
+  <!-- ============ BLOG ============ -->
+  <section class="blog" id="blogSection">
+    <h2>Le Blog VISION BOOKS</h2>
+    <div class="blog-grid" id="blogGrid"></div>
+  </section>
+</main>
+
+<footer>
+  <p>VISION BOOKS — Bibliothèque Numérique Business & Mindset · © <span id="year"></span></p>
+</footer>
+
+<!-- Floating WhatsApp -->
+<a class="float-wa" id="floatWa" aria-label="WhatsApp" target="_blank" rel="noopener">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="#052e1a"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.35 5.07L2 22l5.06-1.33A9.94 9.94 0 0 0 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18c-1.6 0-3.1-.43-4.4-1.18l-.31-.18-3.01.79.8-2.93-.2-.3A7.94 7.94 0 0 1 4 12c0-4.41 3.59-8 8-8s8 3.59 8 8-3.59 8-8 8zm4.42-5.97c-.24-.12-1.42-.7-1.64-.78-.22-.08-.38-.12-.54.12-.16.24-.62.78-.76.94-.14.16-.28.18-.52.06-.24-.12-1-.37-1.9-1.17-.7-.62-1.18-1.39-1.32-1.63-.14-.24-.01-.36.1-.48.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.3-.74-1.78-.2-.47-.4-.4-.54-.41h-.46c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.7 2.6 4.12 3.64.58.25 1.03.4 1.38.51.58.18 1.1.16 1.52.1.46-.07 1.42-.58 1.62-1.14.2-.56.2-1.04.14-1.14-.06-.1-.22-.16-.46-.28z"/></svg>
+</a>
+
+<!-- ============ FOUNDER / LEAD MAGNET DRAWER ============ -->
+<div class="overlay" id="founderOverlay">
+  <div class="sheet">
+    <div class="sheet-head"><h3>À propos & Cadeaux</h3><button class="close-btn" data-close="founderOverlay">✕</button></div>
+    <div class="sheet-body">
+      <div class="founder-photo" id="founderInitial">?</div>
+      <h3 style="text-align:center;font-size:17px;margin-bottom:12px" id="founderTitle">Pourquoi j'ai créé VISION BOOKS</h3>
+      <p class="founder-story" id="founderStory">Chargement...</p>
+      <h3 style="font-size:15px;margin-bottom:10px">🎁 Vos cadeaux gratuits</h3>
+      <div id="giftList"></div>
+      <a class="join-btn" id="joinGroupBtn" target="_blank" rel="noopener">💬 Rejoindre le Groupe WhatsApp Privé</a>
+    </div>
+  </div>
+</div>
+
+<!-- ============ PRODUCT DETAIL MODAL ============ -->
+<div class="overlay" id="productOverlay">
+  <div class="sheet">
+    <div class="sheet-head"><h3>Détails du livre</h3><button class="close-btn" data-close="productOverlay">✕</button></div>
+    <div class="sheet-body" id="productModalBody"></div>
+  </div>
+</div>
+
+<!-- ============ ORDER OVERLAY (description + 2 choix + paiement intégré) ============ -->
+<div class="overlay" id="orderOverlay">
+  <div class="sheet">
+    <div class="sheet-head"><h3>Commander</h3><button class="close-btn" data-close="orderOverlay">✕</button></div>
+    <div class="sheet-body" id="orderModalBody"></div>
+  </div>
+</div>
+
+<!-- ============ LEAD MAGNET CAPTURE OVERLAY ============ -->
+<div class="overlay" id="captureOverlay">
+  <div class="sheet">
+    <div class="sheet-head"><h3>Votre cadeau gratuit</h3><button class="close-btn" data-close="captureOverlay">✕</button></div>
+    <div class="sheet-body" id="captureModalBody"></div>
+  </div>
+</div>
+
+<!-- ============ BLOG ARTICLE OVERLAY ============ -->
+<div class="overlay" id="blogOverlay">
+  <div class="sheet">
+    <div class="sheet-head"><h3>Article</h3><button class="close-btn" data-close="blogOverlay">✕</button></div>
+    <div class="sheet-body" id="blogModalBody"></div>
+  </div>
+</div>
+
+<!-- ============ ADMIN — LEADS LEAD MAGNETS ============ -->
+<div class="overlay" id="adminOverlay">
+  <div class="sheet">
+    <div class="sheet-head"><h3>Admin — Leads Lead Magnets</h3><button class="close-btn" data-close="adminOverlay">✕</button></div>
+    <div class="sheet-body">
+      <div id="adminGate" class="admin-gate">
+        <input type="password" id="adminPassInput" placeholder="Mot de passe admin">
+        <button class="btn-main-cta" id="adminLoginBtn">Accéder</button>
+      </div>
+      <div id="adminPanel" style="display:none">
+        <div class="admin-toolbar">
+          <p>Coordonnées des prospects ayant téléchargé un cadeau, à utiliser pour vos relances.</p>
+          <button class="copy-btn" id="exportCsvBtn">Exporter en CSV</button>
+        </div>
+        <div class="admin-table-wrap">
+          <table class="admin-table">
+            <thead><tr><th>Prénom</th><th>WhatsApp</th><th>Livre</th><th>Date</th></tr></thead>
+            <tbody id="adminLeadsBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* =====================================================================
+   VISION BOOKS — CONFIGURATION
+   ===================================================================== */
+const GOOGLE_SHEET_API_URL = "https://script.google.com/macros/s/AKfycbwg0n4NKWKcqEHc2mYmrnWS_tbLEtrkUelXHEEH4j46qR72G2c_2YVV9dJUq7whotTEsw/exec";
+const WHATSAPP_NUMBER = "212655996172"; // +212655996172, format international sans "+"
+
+/* =====================================================================
+   FALLBACK DATA — utilisé tant que GOOGLE_SHEET_API_URL n'est pas configuré
+   ou si l'appel réseau échoue. Structure Produits :
+   id, titre, auteur, categorie, prixRegulier, prixPromo, format,
+   image, description, resumeKeyPoints, badge, lienTelechargement
+   (lienTelechargement = lien Google Drive du fichier PDF/MP3)
+   Structure LeadMagnets : id, titre, format, lienTelechargement
+   Mot de passe admin (leads) : voir ADMIN_PASSWORD plus bas dans le script
+   ===================================================================== */
+const fallbackData = {
+
+  contenuFondateur: {
+    photo: "",
+    initiale: "VB",
+    titre: "Pourquoi j'ai créé VISION BOOKS et pourquoi j'offre du savoir gratuitement.",
+    histoire: "Il y a quelques années, j'ai découvert que la plupart des livres qui ont changé ma vie n'étaient presque jamais recommandés à ceux qui en avaient le plus besoin. J'ai commencé à les partager autour de moi, en version audio et ebook, pour que le mindset et les revenus de mon entourage changent aussi vite que les miens. VISION BOOKS est né de ce constat simple : le savoir qui transforme une vie ne devrait jamais être hors de portée. Chaque titre de cette bibliothèque a été lu, écouté et sélectionné personnellement. Mon objectif n'est pas de vendre des fichiers — c'est de vous donner les mêmes outils que ceux qui ont réussi à changer de trajectoire.",
+    lienGroupeWhatsapp: "https://chat.whatsapp.com/VOTRE_LIEN_GROUPE_ICI"
+  },
+
+  leadMagnets: [
+    { id:"lm1", titre:"Les 7 secrets du succès — Richard Webster", format:"Ebook PDF", image:"", description:"7 principes essentiels, condensés dans un format court, pour démarrer votre transformation dès aujourd'hui.", lienTelechargement:"https://drive.google.com/VOTRE_LIEN_LM1" },
+    { id:"lm2", titre:"Plus tard, c'est maintenant — Brian Tracy", format:"Ebook PDF", image:"", description:"Un cadeau pour arrêter de remettre à demain et passer enfin à l'action.", lienTelechargement:"https://drive.google.com/VOTRE_LIEN_LM2" }
+  ],
+
+  modesPaiement: {
+    cih: {
+      label:"🏦 CIH Bank (RIB)",
+      qr:"",
+      beneficiaire:"VISION LIBRE — Titulaire du compte",
+      numero:"230 780 XXXXXXXXXXXX 45",
+      typeChamp:"RIB"
+    },
+    cashplus: {
+      label:"💸 Cash Plus",
+      qr:"",
+      beneficiaire:"VISION LIBRE",
+      numero:"+212 655 996 172",
+      typeChamp:"Numéro Cash Plus"
+    },
+    mobilemoney: {
+      label:"📱 Mobile Money",
+      qr:"",
+      beneficiaire:"VISION LIBRE",
+      numero:"+212 655 996 172",
+      typeChamp:"Numéro Mobile Money / Orange Money / Wave"
+    }
+  },
+
+  faq: [
+    { question:"Comment reçois-je mon livre après le paiement ?", reponse:"Dès réception de votre preuve de paiement sur WhatsApp, vous recevez immédiatement votre lien de téléchargement direct Google Drive (PDF et/ou MP3 selon le format choisi)." },
+    { question:"Quels sont les moyens de paiement acceptés ?", reponse:"CIH Bank (virement RIB), Cash Plus, ainsi que Mobile Money / Orange Money / Wave. Un QR Code et un RIB sont fournis pour chaque option." },
+    { question:"Les ebooks gratuits sont-ils vraiment sans engagement ?", reponse:"Oui. Les cadeaux de la section Lead Magnets sont 100% gratuits, sans carte bancaire ni engagement — il suffit de nous écrire sur WhatsApp." },
+    { question:"Puis-je acheter le Pack VIP complet plutôt qu'un livre à la fois ?", reponse:"Oui, le Pack VIP vous donne un accès immédiat à plus de 50 ebooks et livres audios de la bibliothèque complète, au prix promotionnel affiché." },
+    { question:"Les fichiers sont-ils compatibles avec tous les appareils ?", reponse:"Oui, les ebooks sont au format PDF et les livres audios au format MP3, lisibles sur smartphone, tablette et ordinateur." }
+  ],
+
+  avis: [
+    { nom:"Yassine", initiale:"Y", note:5, texte:"Reçu mon ebook 5 minutes après le paiement via Cash Plus. Contenu excellent, exactement ce qu'il me fallait pour me relancer." },
+    { nom:"Sara", initiale:"S", note:5, texte:"Le pack VIP vaut largement son prix. J'écoute les livres audios de Brian Tracy tous les matins avant le travail." },
+    { nom:"Mehdi", initiale:"M", note:5, texte:"Service sérieux, réponse rapide sur WhatsApp, et le livre 'Père riche, père pauvre' a changé ma vision de l'argent." },
+    { nom:"Khadija", initiale:"K", note:4, texte:"Très bonne sélection de livres, j'aurais aimé plus de titres en développement personnel mais le contenu est top." }
+  ],
+
+  produits: [
+    // Aucun produit de démo : ajoutez vos livres ici (ou via l'onglet "Produits" du Google Sheet).
+    // Exemple de structure à dupliquer :
+    // { id:"p1", titre:"", auteur:"", categorie:"Entrepreneuriat", prixRegulier:0, prixPromo:0, format:"Ebook",
+    //   image:"", description:"", resumeKeyPoints:["",""], badge:"", lienTelechargement:"" }
+  ],
+
+  blog: [
+    { id:"b1", titre:"5 livres qui peuvent changer votre rapport à l'argent en 2026", extrait:"Découvrez la sélection de livres qui reviennent le plus souvent chez les lecteurs de VISION BOOKS en quête de liberté financière.", contenu:"L'éducation financière ne s'enseigne presque jamais à l'école, et pourtant elle change tout. Voici 5 lectures qui reviennent sans cesse chez nos lecteurs les plus assidus :\n\n1. Père riche, père pauvre — pour repenser la différence entre un actif et un passif.\n2. Le Quadrant du Cashflow — pour comprendre pourquoi le salariat seul limite votre liberté.\n3. Réfléchissez et devenez riche — pour muscler votre mental avant votre portefeuille.\n4. Augmentez votre intelligence financière — pour apprendre à lire les chiffres comme un investisseur.\n5. Votre passe-partout vers les richesses — pour transformer la théorie en habitudes durables.\n\nCommencez par un seul titre, appliquez une idée par semaine, et observez comment vos décisions financières évoluent avec le temps.", date:"2026-08-10" },
+    { id:"b2", titre:"Ebook ou livre audio : lequel choisir selon votre rythme de vie ?", extrait:"Vous hésitez entre lire et écouter ? Voici comment choisir le bon format selon votre emploi du temps et votre façon d'apprendre.", contenu:"Le format idéal dépend surtout de vos moments disponibles :\n\n— Si vous avez de courtes pauses dans la journée (transport, sport, tâches ménagères), le livre audio s'intègre naturellement sans vous demander de vous asseoir.\n\n— Si vous préférez prendre des notes, souligner des passages ou avancer à votre rythme, l'ebook reste imbattable.\n\nNotre conseil : alternez les deux formats selon les titres. Un ouvrage narratif comme L'Alchimiste se savoure très bien en audio, tandis qu'un guide pratique comme S'organiser pour réussir gagne à être lu et annoté.", date:"2026-08-24" },
+    { id:"b3", titre:"3 habitudes des lecteurs qui appliquent (vraiment) ce qu'ils lisent", extrait:"Lire beaucoup ne suffit pas. Voici ce que font différemment les lecteurs qui transforment leurs lectures en résultats concrets.", contenu:"Après des centaines d'échanges avec notre communauté WhatsApp, trois habitudes reviennent chez ceux qui progressent le plus vite :\n\n1. Ils choisissent une seule idée par livre à appliquer dans la semaine, plutôt que de vouloir tout changer d'un coup.\n\n2. Ils relisent leurs passages soulignés une fois par mois, pour ancrer les principes dans la durée.\n\n3. Ils partagent ce qu'ils apprennent avec une autre personne — l'enseigner à quelqu'un d'autre est l'un des meilleurs moyens de vraiment le retenir.\n\nLa bibliothèque ne remplace pas l'action : elle l'accélère.", date:"2026-09-02" },
+    { id:"b4", titre:"Pourquoi nous offrons certains ebooks gratuitement", extrait:"Le mot du fondateur sur la stratégie des cadeaux VISION BOOKS et pourquoi ils ne coûtent jamais rien à découvrir.", contenu:"Beaucoup nous demandent pourquoi certains titres sont entièrement gratuits alors que la bibliothèque est un service payant.\n\nLa réponse est simple : nous préférons que vous testiez la qualité de notre sélection avant de nous faire confiance avec un achat. Les ebooks offerts sont choisis parmi les lectures les plus accessibles et les plus actionnables de notre catalogue — pas des extraits tronqués, mais des œuvres complètes.\n\nSi elles vous aident, la suite de la bibliothèque n'attend que vous.", date:"2026-09-11" }
+  ]
+};
+
+/* =====================================================================
+   STATE
+   ===================================================================== */
+let DATA = null;
+let currentSearch = "";
+let currentProduct = null;
+let currentPayTab = "cih";
+let currentCaptureItem = null;
+const ADMIN_PASSWORD = "vb2026"; // à modifier avant mise en production
+const VIP_PRODUCT = { id:"vip", titre:"Pack VIP — La Bibliothèque Complète", auteur:"VISION BOOKS", format:"+50 Ebooks & Audios", description:"Un accès immédiat et illimité à l'intégralité de la bibliothèque VISION BOOKS : plus de 50 ebooks et livres audios en mindset, finance et entrepreneuriat, réunis dans un seul pack.", prixRegulier:899, prixPromo:249 };
+
+/* =====================================================================
+   DATA LOADING — Google Sheets API avec repli automatique sur fallbackData
+   ===================================================================== */
+async function loadData(){
+  if(!GOOGLE_SHEET_API_URL || GOOGLE_SHEET_API_URL.includes("VOTRE_LIEN")){
+    DATA = fallbackData;
+    renderAll();
+    return;
+  }
+  try{
+    const noCacheUrl = GOOGLE_SHEET_API_URL + (GOOGLE_SHEET_API_URL.includes("?") ? "&" : "?") + "_t=" + Date.now();
+    const res = await fetch(noCacheUrl, { cache: "no-store" });
+    if(!res.ok) throw new Error("Réponse réseau invalide");
+    const json = await res.json();
+    DATA = {
+      produits: json.produits || fallbackData.produits,
+      avis: json.avis || fallbackData.avis,
+      faq: json.faq || fallbackData.faq,
+      leadMagnets: json.leadMagnets || fallbackData.leadMagnets,
+      contenuFondateur: json.contenuFondateur || fallbackData.contenuFondateur,
+      modesPaiement: json.modesPaiement || fallbackData.modesPaiement,
+      blog: json.blog || fallbackData.blog,
+      config: json.config || {},
+      categories: json.categories || []
+    };
+  }catch(err){
+    console.warn("Google Sheet API indisponible, utilisation des données de secours.", err);
+    DATA = fallbackData;
+  }
+  renderAll();
+}
+
+/* =====================================================================
+   CONFIG — onglet "Config" du Sheet : textes, couleurs, police, pack VIP...
+   Tout champ absent du Sheet garde la valeur par défaut du fichier HTML.
+   ===================================================================== */
+function applyCategoriesFromSheet(){
+  const rows = DATA.categories;
+  if(!rows || rows.length === 0) return;
+  CATEGORIES = rows.map(c=>({
+    id: String(c.id || c.label || "").toLowerCase().replace(/[^a-z0-9]+/g,"-"),
+    label: c.label || c.value || "Catégorie",
+    emoji: c.emoji || "📚",
+    type: String(c.type || "categorie").toLowerCase() === "badge" ? "badge" : "categorie",
+    value: c.value || c.label,
+    color: c.color || "#25D366"
+  }));
+}
+
+function loadGoogleFont(fontName){
+  if(!fontName) return;
+  const id = "dynamic-google-font";
+  let link = document.getElementById(id);
+  if(!link){
+    link = document.createElement("link");
+    link.id = id;
+    link.rel = "stylesheet";
+    document.head.appendChild(link);
+  }
+  const family = fontName.trim().replace(/\s+/g, "+");
+  link.href = `https://fonts.googleapis.com/css2?family=${family}:wght@400;500;600;700;800&display=swap`;
+  document.documentElement.style.setProperty("--font-display", `'${fontName.trim()}',sans-serif`);
+}
+
+function applyConfig(){
+  const c = DATA.config || {};
+  if(c.heroTitre) document.getElementById("heroTitre").textContent = c.heroTitre;
+  if(c.heroSousTitre) document.getElementById("heroSousTitre").textContent = c.heroSousTitre;
+  if(c.bandeauTexte) document.getElementById("bandeauTexte").textContent = c.bandeauTexte;
+  if(c.cadeauxTitre) document.getElementById("cadeauxTitre").textContent = c.cadeauxTitre;
+  if(c.cadeauxSousTitre) document.getElementById("cadeauxSousTitre").textContent = c.cadeauxSousTitre;
+  if(c.couleurPrincipale) document.documentElement.style.setProperty("--green", c.couleurPrincipale);
+  if(c.couleurAccent) document.documentElement.style.setProperty("--blue", c.couleurAccent);
+  if(c.couleurDoree) document.documentElement.style.setProperty("--gold", c.couleurDoree);
+  if(c.police) loadGoogleFont(c.police);
+
+  if(c.vipTitre){ VIP_PRODUCT.titre = c.vipTitre; document.getElementById("vipTitre").textContent = c.vipTitre; }
+  if(c.vipSousTitre){ VIP_PRODUCT.description = c.vipSousTitre; document.getElementById("vipSousTitre").textContent = c.vipSousTitre; }
+  if(c.vipPrixRegulier){ VIP_PRODUCT.prixRegulier = Number(c.vipPrixRegulier); document.getElementById("vipPrixRegulier").textContent = `${Number(c.vipPrixRegulier)} MAD`; }
+  if(c.vipPrixPromo){ VIP_PRODUCT.prixPromo = Number(c.vipPrixPromo); document.getElementById("vipPrixPromo").textContent = `${Number(c.vipPrixPromo)} MAD`; }
+}
+
+function renderAll(){
+  applyCategoriesFromSheet();
+  applyConfig();
+  renderFounder();
+  renderBestSellers();
+  renderCategoryCards();
+  renderReviews();
+  renderFaq();
+  renderBlog();
+  document.getElementById("floatWa").href = buildWaLink("Bonjour VISION BOOKS, j'ai une question sur votre bibliothèque numérique.");
+  document.getElementById("joinGroupBtn").href = DATA.contenuFondateur.lienGroupeWhatsapp;
+}
+
+/* =====================================================================
+   RENDER — Founder drawer (les cadeaux ouvrent la page de capture de leads)
+   ===================================================================== */
+function renderFounder(){
+  const f = DATA.contenuFondateur;
+  const photoEl = document.getElementById("founderInitial");
+  if(f.photo){
+    photoEl.innerHTML = `<img src="${f.photo}" alt="Fondateur" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:50%">`;
+  }else{
+    photoEl.textContent = f.initiale || "VB";
+  }
+  document.getElementById("founderTitle").textContent = f.titre;
+  document.getElementById("founderStory").textContent = f.histoire;
+  const giftList = document.getElementById("giftList");
+  giftList.innerHTML = "";
+  (DATA.leadMagnets || []).forEach(g=>{
+    const el = document.createElement("div");
+    el.className = "gift-card";
+    el.innerHTML = `
+      ${g.image ? `<img src="${g.image}" alt="${escapeHtml(g.titre)}" loading="lazy" class="gift-thumb">` : ""}
+      <div class="gift-text">
+        <span class="name">${escapeHtml(g.titre)}</span>
+        ${g.description ? `<span class="gift-desc">${escapeHtml(g.description)}</span>` : ""}
+      </div>
+      <button class="btn-mini" data-gift="${g.id}">Télécharger gratuitement</button>`;
+    giftList.appendChild(el);
+  });
+  giftList.querySelectorAll("[data-gift]").forEach(btn=>{
+    btn.addEventListener("click", ()=>{
+      const gift = DATA.leadMagnets.find(g=>g.id === btn.dataset.gift);
+      if(gift){ closeOverlay("founderOverlay"); openCaptureOverlay(gift, "lead-magnet"); }
+    });
+  });
+}
+
+/* =====================================================================
+   CATÉGORIES — grandes cartes affichées sur l'accueil
+   ===================================================================== */
+let CATEGORIES = [
+  { id:"entrepreneuriat", label:"Business & Entrepreneuriat", emoji:"📈", type:"categorie", value:"Business & Entrepreneuriat", color:"#3B82F6" },
+  { id:"financiere", label:"Liberté Financière & Succès", emoji:"💰", type:"categorie", value:"Liberté Financière & Succès", color:"#F59E0B" },
+  { id:"investissement", label:"Investissement & Trading", emoji:"📊", type:"categorie", value:"Investissement & Trading", color:"#10B981" },
+  { id:"marketing", label:"Business en ligne & Marketing", emoji:"💻", type:"categorie", value:"Business en ligne & Marketing", color:"#8B5CF6" },
+  { id:"developpement", label:"Développement Personnel", emoji:"🧠", type:"categorie", value:"Développement Personnel", color:"#06B6D4" },
+  { id:"spiritualite", label:"Spiritualité & Bien-être", emoji:"🕊️", type:"categorie", value:"Spiritualité & Bien-être", color:"#C084FC" },
+  { id:"amour", label:"Amour", emoji:"❤️", type:"categorie", value:"Amour", color:"#F43F5E" },
+  { id:"bestsellers", label:"Best-Sellers", emoji:"🔥", type:"badge", value:"Best-Seller", color:"#F97316" },
+  { id:"autres", label:"Autres", emoji:"✨", type:"categorie", value:"Autres", color:"#64748B" }
+];
+
+function getCategoryColor(categorieValue){
+  const found = CATEGORIES.find(c=>c.type === "categorie" && c.value === categorieValue);
+  return found ? found.color : "#25D366";
+}
+
+function matchesCategory(p, cat){
+  if(!cat) return true;
+  if(cat.type === "categorie") return p.categorie === cat.value;
+  if(cat.type === "badge") return p.badge === cat.value;
+  return true;
+}
+
+/* =====================================================================
+   RENDER — Grille de produits générique (réutilisée par Best-Sellers,
+   la vue catégorie et la recherche)
+   ===================================================================== */
+function renderProductGrid(containerId, list, emptyMessage){
+  const grid = document.getElementById(containerId);
+  grid.innerHTML = "";
+
+  if(list.length === 0){
+    grid.innerHTML = `<p style="grid-column:1/-1;color:var(--muted);text-align:center;padding:30px 0">${escapeHtml(emptyMessage || "Aucun livre disponible pour le moment.")}</p>`;
+    return;
+  }
+
+  list.forEach(p=>{
+    const isFree = p.prixPromo === 0;
+    const card = document.createElement("div");
+    card.className = "card";
+    card.innerHTML = `
+      <div class="cover">
+        ${p.image ? `<img src="${p.image}" alt="${escapeHtml(p.titre)}" loading="lazy">` : `<div style="font-family:var(--font-display);font-weight:800;font-size:13px;color:var(--muted);text-align:center;padding:10px">${escapeHtml(p.titre)}</div>`}
+        ${p.badge ? `<span class="badge ${isFree ? 'free' : ''}">${escapeHtml(p.badge)}</span>` : (isFree ? `<span class="badge free">Gratuit</span>` : "")}
+      </div>
+      <div class="body">
+        <div class="title">${escapeHtml(p.titre)}</div>
+        <div class="author">${escapeHtml(p.auteur)}</div>
+        <div class="rating">⭐⭐⭐⭐⭐ 4.9</div>
+        <div class="price-row">
+          ${isFree ? `<span class="price-new">Gratuit</span>` : `<span class="price-old">${p.prixRegulier} MAD</span><span class="price-new">${p.prixPromo} MAD</span>`}
+        </div>
+        <div class="actions">
+          <button class="btn-whatsapp" data-order="${p.id}">${isFree ? "Recevoir gratuitement 🎁" : "Commander 🛒"}</button>
+          <button class="btn-ghost" data-detail="${p.id}">Voir le résumé</button>
+        </div>
+      </div>`;
+    grid.appendChild(card);
+  });
+
+  grid.querySelectorAll("[data-order]").forEach(btn=>{
+    btn.addEventListener("click", ()=> orderProduct(btn.dataset.order));
+  });
+  grid.querySelectorAll("[data-detail]").forEach(btn=>{
+    btn.addEventListener("click", ()=> openProductModal(btn.dataset.detail));
+  });
+}
+
+function renderBestSellers(){
+  const list = DATA.produits.filter(p=>p.badge === "Best-Seller");
+  renderProductGrid("bestSellersGrid", list, "Ajoutez des produits avec le badge \"Best-Seller\" pour qu'ils apparaissent ici.");
+}
+
+function renderCategoryCards(){
+  const wrap = document.getElementById("categoryCards");
+  wrap.innerHTML = "";
+  CATEGORIES.forEach(cat=>{
+    const count = DATA.produits.filter(p=>matchesCategory(p, cat)).length;
+    const btn = document.createElement("button");
+    btn.className = "cat-card";
+    btn.style.setProperty("--cat-color", cat.color);
+    btn.innerHTML = `
+      <span class="emoji">${cat.emoji}</span>
+      <span class="txt"><h3>${escapeHtml(cat.label)}</h3><p>${count} livre${count>1?"s":""} disponible${count>1?"s":""}</p></span>
+      <span class="arrow">→</span>`;
+    btn.addEventListener("click", ()=> openCategory(cat));
+    wrap.appendChild(btn);
+  });
+}
+
+/* =====================================================================
+   VUE LISTE (catégorie, recherche...) avec sous-filtres Audio / Ebook
+   ===================================================================== */
+let currentViewBaseList = [];
+let currentFormatFilter = "all";
+let inCategoryView = false;
+
+function openListView(title, baseList, color){
+  document.getElementById("homeBestsellers").style.display = "none";
+  document.getElementById("categoriesSection").style.display = "none";
+  document.getElementById("categoryView").style.display = "block";
+  document.getElementById("categoryTitle").textContent = title;
+  document.getElementById("categoryView").style.setProperty("--cat-color", color || "var(--green)");
+  currentViewBaseList = baseList;
+  currentFormatFilter = "all";
+  renderCategorySubfilters();
+  applyFormatFilterAndRender();
+  document.getElementById("categoryView").scrollIntoView({ behavior:"smooth", block:"start" });
+  if(inCategoryView){
+    history.replaceState({ vbView:"category" }, "");
+  }else{
+    history.pushState({ vbView:"category" }, "");
+    inCategoryView = true;
+  }
+}
+
+function renderCategorySubfilters(){
+  const wrap = document.getElementById("categorySubfilters");
+  wrap.innerHTML = `
+    <button class="chip active" data-format="all">Tous</button>
+    <button class="chip" data-format="audio">🎧 Livres Audios</button>
+    <button class="chip" data-format="ebook">📚 Ebook</button>`;
+  wrap.querySelectorAll("[data-format]").forEach(btn=>{
+    btn.addEventListener("click", ()=>{
+      wrap.querySelectorAll(".chip").forEach(c=>c.classList.remove("active"));
+      btn.classList.add("active");
+      currentFormatFilter = btn.dataset.format;
+      applyFormatFilterAndRender();
+    });
+  });
+}
+
+function applyFormatFilterAndRender(){
+  let list = currentViewBaseList;
+  if(currentFormatFilter === "audio") list = list.filter(p=>/audio|mp3/i.test(p.format));
+  else if(currentFormatFilter === "ebook") list = list.filter(p=>/ebook/i.test(p.format));
+  renderProductGrid("categoryGrid", list, "Aucun livre ne correspond à ce filtre.");
+}
+
+function openCategory(cat){
+  currentSearch = "";
+  document.getElementById("searchInput").value = "";
+  const list = DATA.produits.filter(p=>matchesCategory(p, cat));
+  openListView(`${cat.emoji} ${cat.label}`, list, cat.color);
+}
+
+function openSearchResults(query){
+  const q = query.toLowerCase();
+  const list = DATA.produits.filter(p=>p.titre.toLowerCase().includes(q) || p.auteur.toLowerCase().includes(q));
+  openListView(`Résultats pour « ${query} »`, list);
+}
+
+function showHome(){
+  document.getElementById("categoryView").style.display = "none";
+  document.getElementById("homeBestsellers").style.display = "";
+  document.getElementById("categoriesSection").style.display = "";
+  currentSearch = "";
+  document.getElementById("searchInput").value = "";
+  if(inCategoryView){
+    inCategoryView = false;
+    if(history.state && history.state.vbView === "category"){
+      history.back();
+    }
+  }
+}
+
+/* =====================================================================
+   RENDER — Reviews
+   ===================================================================== */
+function renderReviews(){
+  const row = document.getElementById("reviewsRow");
+  row.innerHTML = "";
+  (DATA.avis || []).forEach(a=>{
+    const el = document.createElement("div");
+    el.className = "review-bubble";
+    el.innerHTML = `
+      <div class="who"><div class="initial">${escapeHtml(a.initiale)}</div><div class="name">${escapeHtml(a.nom)}</div></div>
+      <div class="stars">${"★".repeat(a.note)}${"☆".repeat(5-a.note)}</div>
+      <p>${escapeHtml(a.texte)}</p>`;
+    row.appendChild(el);
+  });
+}
+
+/* =====================================================================
+   RENDER — FAQ
+   ===================================================================== */
+function renderFaq(){
+  const list = document.getElementById("faqList");
+  list.innerHTML = "";
+  (DATA.faq || []).forEach((item,i)=>{
+    const el = document.createElement("div");
+    el.className = "faq-item";
+    el.innerHTML = `
+      <button class="faq-q" data-faq="${i}"><span>${escapeHtml(item.question)}</span><span class="plus">+</span></button>
+      <div class="faq-a"><div>${escapeHtml(item.reponse)}</div></div>`;
+    list.appendChild(el);
+  });
+  list.querySelectorAll(".faq-q").forEach(btn=>{
+    btn.addEventListener("click", ()=>{
+      const item = btn.closest(".faq-item");
+      const answer = item.querySelector(".faq-a");
+      const isOpen = item.classList.contains("open");
+      list.querySelectorAll(".faq-item").forEach(i=>{
+        i.classList.remove("open");
+        i.querySelector(".faq-a").style.maxHeight = null;
+      });
+      if(!isOpen){
+        item.classList.add("open");
+        answer.style.maxHeight = answer.scrollHeight + "px";
+      }
+    });
+  });
+}
+
+/* =====================================================================
+   PRODUCT MODAL
+   ===================================================================== */
+function openProductModal(id){
+  const p = DATA.produits.find(x=>x.id === id);
+  if(!p) return;
+  currentProduct = p;
+  const isFree = p.prixPromo === 0;
+  document.getElementById("productModalBody").innerHTML = `
+    <div class="modal-cover">${p.image ? `<img src="${p.image}" alt="${escapeHtml(p.titre)}">` : `<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:800;color:var(--muted)">${escapeHtml(p.titre)}</div>`}</div>
+    <h3 style="font-size:18px;margin-bottom:4px">${escapeHtml(p.titre)}</h3>
+    <p style="color:var(--muted);font-size:13px;margin-bottom:10px">${escapeHtml(p.auteur)} · ${escapeHtml(p.format)}</p>
+    <p style="font-size:13.5px;color:var(--muted);line-height:1.55;margin-bottom:12px">${escapeHtml(p.description || "")}</p>
+    <ul class="kp-list">${p.resumeKeyPoints.map(k=>`<li>${escapeHtml(k)}</li>`).join("")}</ul>
+    <div class="guarantee">✅ Livraison instantanée par lien Google Drive après confirmation du paiement.</div>
+    <div class="price-row" style="margin-bottom:14px">
+      ${isFree ? `<span class="price-new" style="font-size:22px">Gratuit</span>` : `<span class="price-old" style="font-size:14px">${p.prixRegulier} MAD</span><span class="price-new" style="font-size:22px">${p.prixPromo} MAD</span>`}
+    </div>
+    <button class="btn-whatsapp" style="padding:14px" id="modalOrderBtn">${isFree ? "Recevoir gratuitement 🎁" : "Commander 🛒"}</button>`;
+  document.getElementById("modalOrderBtn").addEventListener("click", ()=>{ closeOverlay("productOverlay"); orderProduct(p.id); });
+  document.getElementById("productOverlay").style.setProperty("--cat-color", getCategoryColor(p.categorie));
+  openOverlay("productOverlay");
+}
+
+/* =====================================================================
+   ORDER FLOW — un seul modal : description, prix, 2 boutons
+   (envoyer la commande sur WhatsApp / voir les modes de paiement)
+   ===================================================================== */
+function orderProduct(id){
+  const p = DATA.produits.find(x=>x.id === id);
+  if(!p) return;
+  if(p.prixPromo === 0){
+    openCaptureOverlay(p, "produit-gratuit");
+    return;
+  }
+  openOrderOverlay(p);
+}
+
+function openOrderOverlay(product){
+  currentProduct = product;
+  const body = document.getElementById("orderModalBody");
+  body.innerHTML = `
+    <h3 style="font-size:18px;margin-bottom:2px">${escapeHtml(product.titre)}</h3>
+    ${product.auteur ? `<p style="color:var(--muted);font-size:13px">${escapeHtml(product.auteur)}${product.format ? " · "+escapeHtml(product.format) : ""}</p>` : ""}
+    <p class="order-desc">${escapeHtml(product.description || "")}</p>
+    <div class="order-price-row">
+      <span class="old">${product.prixRegulier} MAD</span>
+      <span class="new">${product.prixPromo} MAD</span>
+    </div>
+    <div class="order-actions">
+      <button class="btn-whatsapp" id="sendOrderBtn">Envoyer ma commande sur WhatsApp 💬</button>
+      <button class="btn-secondary" id="viewPaymentBtn">🏦 Voir les modes de paiement</button>
+    </div>
+    <div id="orderPaymentSection" style="display:none;margin-top:18px">
+      <div class="pay-tabs" id="payTabs"></div>
+      <div id="payContent"></div>
+      <p class="pay-note">Effectuez le virement puis cliquez sur le bouton ci-dessous pour envoyer votre reçu sur WhatsApp et débloquer vos accès.</p>
+      <button class="btn-main-cta" id="paidBtn">J'ai payé — Envoyer la preuve sur WhatsApp 💬</button>
+    </div>`;
+
+  const orderMsg = `Bonjour VISION LIBRE,\nJe souhaite commander : ${product.titre}\nPrix : ${product.prixPromo} MAD\n\nMerci de me transmettre les coordonnées bancaires (CIH Bank / Cash Plus / Mobile Money) pour effectuer le règlement et recevoir mon lien de téléchargement.`;
+
+  document.getElementById("sendOrderBtn").addEventListener("click", ()=>{
+    window.open(buildWaLink(orderMsg), "_blank");
+    trackEvent("order_click", product.titre);
+    saveOrder(product);
+    closeOverlay("orderOverlay");
+  });
+  document.getElementById("viewPaymentBtn").addEventListener("click", ()=>{
+    const section = document.getElementById("orderPaymentSection");
+    const isHidden = section.style.display === "none";
+    section.style.display = isHidden ? "block" : "none";
+    if(isHidden) renderPaymentTabs();
+  });
+  document.getElementById("paidBtn").addEventListener("click", ()=>{
+    window.open(buildWaLink(orderMsg), "_blank");
+    trackEvent("paid_click", product.titre);
+    saveOrder(product);
+    closeOverlay("orderOverlay");
+  });
+
+  document.getElementById("orderOverlay").style.setProperty("--cat-color", getCategoryColor(product.categorie));
+  openOverlay("orderOverlay");
+}
+
+/* =====================================================================
+   LEAD MAGNET CAPTURE — prénom + numéro WhatsApp avant téléchargement
+   ===================================================================== */
+function openCaptureOverlay(item, source){
+  currentCaptureItem = item;
+  const body = document.getElementById("captureModalBody");
+  body.innerHTML = `
+    ${item.image ? `<div class="capture-cover"><img src="${item.image}" alt="${escapeHtml(item.titre)}" loading="lazy"></div>` : `<div class="capture-hero">🎁</div>`}
+    <h3>${escapeHtml(item.titre)}</h3>
+    ${item.description ? `<p class="capture-pitch">${escapeHtml(item.description)}</p>` : `<p class="capture-pitch">Ce livre a déjà aidé des centaines de lecteurs à passer à l'action. Recevez-le <strong>gratuitement en 10 secondes</strong> — aucune carte bancaire requise, aucun engagement.</p>`}
+    <form id="captureForm">
+      <input type="text" id="captureFirstname" placeholder="Votre prénom" required>
+      <input type="tel" id="captureWhatsapp" placeholder="Votre numéro WhatsApp" required>
+      <button type="submit" class="btn-main-cta">Recevoir mon ebook gratuit 🎁</button>
+    </form>
+    <p class="capture-reassure">🔒 Vos informations restent privées et servent uniquement à vous envoyer vos futurs cadeaux et bons plans.</p>`;
+  document.getElementById("captureForm").addEventListener("submit", (e)=>{
+    e.preventDefault();
+    const prenom = document.getElementById("captureFirstname").value.trim();
+    const numero = document.getElementById("captureWhatsapp").value.trim();
+    if(!prenom || !numero) return;
+    saveLead({ prenom, numero, livre:item.titre, source, date:new Date().toISOString() });
+    revealDownload(item, prenom);
+  });
+  openOverlay("captureOverlay");
+}
+
+function revealDownload(item, prenom){
+  const body = document.getElementById("captureModalBody");
+  body.innerHTML = `
+    <div class="capture-hero">🎉</div>
+    <h3>Merci ${escapeHtml(prenom)} !</h3>
+    <p class="capture-pitch">Votre ebook <strong>${escapeHtml(item.titre)}</strong> est prêt. Cliquez ci-dessous pour le télécharger immédiatement.</p>
+    <a class="btn-main-cta" style="display:block;text-align:center" href="${item.lienTelechargement || '#'}" target="_blank" rel="noopener">⬇️ Télécharger maintenant</a>
+    <a class="join-btn" style="margin-top:10px;display:block;text-align:center" target="_blank" rel="noopener" href="${DATA.contenuFondateur.lienGroupeWhatsapp}">💬 Rejoindre le Groupe WhatsApp Privé</a>
+    <div style="margin-top:22px;padding-top:18px;border-top:1px solid var(--line)">
+      <p style="font-size:13px;color:var(--muted);text-align:center;margin-bottom:12px">🎁 Ce livre vous a plu ? Découvrez tout ce qui vous attend encore dans la bibliothèque complète.</p>
+      <button class="btn-secondary" style="width:100%" id="funnelUpsellBtn">Voir le Pack VIP en promo 🔥</button>
+    </div>`;
+  document.getElementById("funnelUpsellBtn").addEventListener("click", ()=>{
+    closeOverlay("captureOverlay");
+    openOrderOverlay(VIP_PRODUCT);
+  });
+}
+
+/* =====================================================================
+   ANALYTICS & COMMANDES — envoi silencieux, sans jamais bloquer le site
+   ===================================================================== */
+function trackEvent(type, label){
+  if(!GOOGLE_SHEET_API_URL || GOOGLE_SHEET_API_URL.includes("VOTRE_LIEN")) return;
+  fetch(GOOGLE_SHEET_API_URL, {
+    method:"POST", mode:"no-cors", headers:{ "Content-Type":"text/plain" },
+    body: JSON.stringify({ action:"trackEvent", type, label, date:new Date().toISOString() })
+  }).catch(()=>{});
+}
+
+function saveOrder(product){
+  if(!GOOGLE_SHEET_API_URL || GOOGLE_SHEET_API_URL.includes("VOTRE_LIEN")) return;
+  fetch(GOOGLE_SHEET_API_URL, {
+    method:"POST", mode:"no-cors", headers:{ "Content-Type":"text/plain" },
+    body: JSON.stringify({ action:"saveOrder", produit:product.titre, prix:product.prixPromo, date:new Date().toISOString() })
+  }).catch(()=>{});
+}
+
+function saveLead(lead){
+  try{
+    const key = "vb_leads";
+    const leads = JSON.parse(localStorage.getItem(key) || "[]");
+    leads.push(lead);
+    localStorage.setItem(key, JSON.stringify(leads));
+  }catch(err){
+    console.warn("Impossible de sauvegarder le lead localement.", err);
+  }
+  if(GOOGLE_SHEET_API_URL && !GOOGLE_SHEET_API_URL.includes("VOTRE_LIEN")){
+    fetch(GOOGLE_SHEET_API_URL, {
+      method:"POST",
+      mode:"no-cors",
+      headers:{ "Content-Type":"text/plain" },
+      body: JSON.stringify({ action:"saveLead", ...lead })
+    }).catch(err=> console.warn("Envoi du lead au Google Sheet impossible.", err));
+  }
+}
+
+/* =====================================================================
+   BLOG — génère du trafic organique gratuit
+   ===================================================================== */
+function renderBlog(){
+  const grid = document.getElementById("blogGrid");
+  grid.innerHTML = "";
+  (DATA.blog || []).forEach(a=>{
+    const el = document.createElement("div");
+    el.className = "blog-card";
+    const d = a.date ? new Date(a.date).toLocaleDateString("fr-FR", { day:"numeric", month:"long", year:"numeric" }) : "";
+    el.innerHTML = `
+      <span class="date">${escapeHtml(d)}</span>
+      <h3>${escapeHtml(a.titre)}</h3>
+      <p>${escapeHtml(a.extrait)}</p>
+      <button class="read-more" data-blog="${a.id}">Lire l'article →</button>`;
+    grid.appendChild(el);
+  });
+  grid.querySelectorAll("[data-blog]").forEach(btn=>{
+    btn.addEventListener("click", ()=> openBlogModal(btn.dataset.blog));
+  });
+}
+
+function openBlogModal(id){
+  const a = (DATA.blog || []).find(x=>x.id === id);
+  if(!a) return;
+  const d = a.date ? new Date(a.date).toLocaleDateString("fr-FR", { day:"numeric", month:"long", year:"numeric" }) : "";
+  document.getElementById("blogModalBody").innerHTML = `
+    <span class="date">${escapeHtml(d)}</span>
+    <h3 style="font-size:19px;margin:6px 0 14px">${escapeHtml(a.titre)}</h3>
+    <div class="blog-article-body">${escapeHtml(a.contenu)}</div>
+    <button class="btn-whatsapp" style="margin-top:18px;padding:14px" id="blogCatalogBtn">Découvrir la bibliothèque 📚</button>`;
+  document.getElementById("blogCatalogBtn").addEventListener("click", ()=>{
+    closeOverlay("blogOverlay");
+    document.getElementById("categoriesSection").scrollIntoView({ behavior:"smooth" });
+  });
+  openOverlay("blogOverlay");
+}
+
+/* =====================================================================
+   RENDER — Payment tabs (affichés dans le modal de commande)
+   ===================================================================== */
+function renderPaymentTabs(){
+  const tabs = document.getElementById("payTabs");
+  if(!tabs) return;
+  tabs.innerHTML = "";
+  Object.entries(DATA.modesPaiement).forEach(([key,mode])=>{
+    const btn = document.createElement("button");
+    btn.className = "pay-tab" + (key === currentPayTab ? " active" : "");
+    btn.textContent = mode.label;
+    btn.dataset.pay = key;
+    btn.addEventListener("click", ()=>{ currentPayTab = key; renderPaymentTabs(); });
+    tabs.appendChild(btn);
+  });
+  renderPayContent();
+}
+
+function renderPayContent(){
+  const mode = DATA.modesPaiement[currentPayTab];
+  const content = document.getElementById("payContent");
+  if(!content) return;
+  content.innerHTML = `
+    <div class="qr-box">${mode.qr ? `<img src="${mode.qr}" alt="QR Code ${mode.label}">` : `<span style="color:#0F172A;font-size:11px;text-align:center;padding:8px">QR Code<br>${escapeHtml(mode.label)}</span>`}</div>
+    <div class="pay-info">
+      <div class="row"><span>Bénéficiaire</span><span class="val">${escapeHtml(mode.beneficiaire)}</span></div>
+      <div class="row"><span>${escapeHtml(mode.typeChamp)}</span><span class="val" id="payNumberVal">${escapeHtml(mode.numero)}</span></div>
+      <div class="row"><span></span><button class="copy-btn" id="copyRibBtn">Copier</button></div>
+    </div>`;
+  document.getElementById("copyRibBtn").addEventListener("click", (e)=>{
+    navigator.clipboard.writeText(mode.numero.replace(/\s/g,"")).then(()=>{
+      e.target.textContent = "Copié !";
+      e.target.classList.add("copied");
+      setTimeout(()=>{ e.target.textContent="Copier"; e.target.classList.remove("copied"); }, 1800);
+    });
+  });
+}
+
+/* =====================================================================
+   ADMIN — coordonnées des leads (lead magnets) pour les relances
+   ===================================================================== */
+function initAdmin(){
+  if(location.hash !== "#admin") return;
+  openOverlay("adminOverlay");
+}
+document.getElementById("adminLoginBtn").addEventListener("click", ()=>{
+  const pass = document.getElementById("adminPassInput").value;
+  if(pass === ADMIN_PASSWORD){
+    document.getElementById("adminGate").style.display = "none";
+    document.getElementById("adminPanel").style.display = "block";
+    renderAdminLeads();
+  }else{
+    alert("Mot de passe incorrect.");
+  }
+});
+function renderAdminLeads(){
+  const leads = JSON.parse(localStorage.getItem("vb_leads") || "[]");
+  const tbody = document.getElementById("adminLeadsBody");
+  tbody.innerHTML = leads.slice().reverse().map(l=>`
+    <tr><td>${escapeHtml(l.prenom)}</td><td>${escapeHtml(l.numero)}</td><td>${escapeHtml(l.livre)}</td><td>${new Date(l.date).toLocaleString("fr-FR")}</td></tr>
+  `).join("") || `<tr><td colspan="4" style="text-align:center;color:var(--muted)">Aucun lead pour le moment.</td></tr>`;
+}
+document.getElementById("exportCsvBtn").addEventListener("click", ()=>{
+  const leads = JSON.parse(localStorage.getItem("vb_leads") || "[]");
+  let csv = "Prenom,Numero,Livre,Date\n";
+  leads.forEach(l=> csv += `"${(l.prenom||"").replace(/"/g,'""')}","${(l.numero||"").replace(/"/g,'""')}","${(l.livre||"").replace(/"/g,'""')}","${l.date||""}"\n`);
+  const blob = new Blob([csv], { type:"text/csv" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url; a.download = "vision-books-leads.csv"; a.click();
+  URL.revokeObjectURL(url);
+});
+
+function buildWaLink(message){
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+}
+
+function escapeHtml(str){
+  const div = document.createElement("div");
+  div.textContent = str == null ? "" : str;
+  return div.innerHTML;
+}
+
+/* =====================================================================
+   OVERLAYS
+   ===================================================================== */
+let overlayStackOpen = false;
+
+function openOverlay(id){
+  document.getElementById(id).classList.add("show");
+  document.body.style.overflow = "hidden";
+  if(overlayStackOpen){
+    // Un overlay était déjà ouvert juste avant (ex: cadeaux → formulaire) :
+    // on remplace l'entrée d'historique au lieu d'en empiler une nouvelle,
+    // pour éviter tout conflit avec la fermeture du précédent.
+    history.replaceState({ vbOverlay:id }, "");
+  }else{
+    history.pushState({ vbOverlay:id }, "");
+    overlayStackOpen = true;
+  }
+}
+function closeOverlay(id){
+  document.getElementById(id).classList.remove("show");
+  document.body.style.overflow = "";
+  // On attend la fin de l'exécution en cours : si un autre overlay s'ouvre
+  // juste après (même fonction appelante), on ne touche pas à l'historique.
+  setTimeout(()=>{
+    const stillOpen = document.querySelector(".overlay.show");
+    if(!stillOpen && overlayStackOpen){
+      overlayStackOpen = false;
+      if(history.state && history.state.vbOverlay){
+        history.back();
+      }
+    }
+  }, 0);
+}
+window.addEventListener("popstate", ()=>{
+  overlayStackOpen = false;
+  const openOv = document.querySelector(".overlay.show");
+  if(openOv){
+    openOv.classList.remove("show");
+    document.body.style.overflow = "";
+    return;
+  }
+  if(inCategoryView){
+    inCategoryView = false;
+    document.getElementById("categoryView").style.display = "none";
+    document.getElementById("homeBestsellers").style.display = "";
+    document.getElementById("categoriesSection").style.display = "";
+    currentSearch = "";
+    document.getElementById("searchInput").value = "";
+  }
+});
+document.querySelectorAll("[data-close]").forEach(btn=>{
+  btn.addEventListener("click", ()=> closeOverlay(btn.dataset.close));
+});
+document.querySelectorAll(".overlay").forEach(ov=>{
+  ov.addEventListener("click", (e)=>{ if(e.target === ov) closeOverlay(ov.id); });
+});
+document.getElementById("openFounder").addEventListener("click", ()=> openOverlay("founderOverlay"));
+document.getElementById("openFounder2").addEventListener("click", ()=> openOverlay("founderOverlay"));
+document.getElementById("vipBtn").addEventListener("click", ()=> openOrderOverlay(VIP_PRODUCT));
+
+/* =====================================================================
+   RECHERCHE & RETOUR À L'ACCUEIL
+   ===================================================================== */
+document.getElementById("searchInput").addEventListener("input", (e)=>{
+  currentSearch = e.target.value;
+  const q = currentSearch.trim();
+  if(q){
+    openSearchResults(q);
+  }else{
+    showHome();
+  }
+});
+document.getElementById("backToHomeBtn").addEventListener("click", showHome);
+
+/* =====================================================================
+   COUNTDOWN TIMER — se réinitialise automatiquement toutes les 24h
+   ===================================================================== */
+function initCountdown(){
+  const key = "vb_countdown_end";
+  let end = localStorage.getItem(key);
+  const now = Date.now();
+  if(!end || Number(end) < now){
+    end = now + 24*60*60*1000;
+    localStorage.setItem(key, end);
+  }
+  function tick(){
+    const remaining = Number(end) - Date.now();
+    if(remaining <= 0){
+      localStorage.removeItem(key);
+      initCountdown();
+      return;
+    }
+    const h = String(Math.floor(remaining / 3600000)).padStart(2,"0");
+    const m = String(Math.floor((remaining % 3600000) / 60000)).padStart(2,"0");
+    const s = String(Math.floor((remaining % 60000) / 1000)).padStart(2,"0");
+    document.getElementById("countdown").textContent = `${h}:${m}:${s}`;
+  }
+  tick();
+  setInterval(tick, 1000);
+}
+
+/* =====================================================================
+   SKELETONS — affichés immédiatement pendant le chargement du Google Sheet
+   ===================================================================== */
+function renderSkeletons(){
+  document.getElementById("bestSellersGrid").innerHTML =
+    Array(4).fill('<div class="card skeleton skeleton-card"></div>').join("");
+  document.getElementById("categoryCards").innerHTML =
+    Array(5).fill('<div class="cat-card skeleton" style="height:76px"></div>').join("");
+}
+
+/* =====================================================================
+   INIT
+   ===================================================================== */
+document.getElementById("year").textContent = new Date().getFullYear();
+renderSkeletons();
+initCountdown();
+initAdmin();
+loadData();
+trackEvent("pageview", location.pathname);
+</script>
+</body>
+</html>
